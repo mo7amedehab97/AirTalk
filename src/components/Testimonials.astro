@@ -1,0 +1,51 @@
+---
+const testimonials = [
+  {
+    name: 'Alex M.',
+    role: 'Early Tester',
+    avatar: '🌟',
+    quote: 'Finally, a voice-only chat platform that actually feels safe. I never liked video — this is way more authentic and comfortable.'
+  },
+  {
+    name: 'Jordan K.',
+    role: 'Community Member',
+    avatar: '🎭',
+    quote: 'Most apps are just noise, but AirTalk actually feels like a place to make new friends. It\'s simple, safe, and real — exactly what I\'ve been looking for.'
+  },
+  {
+    name: 'Sam T.',
+    role: 'Beta User',
+    avatar: '💫',
+    quote: 'There\'s something different about late-night conversations — people open up more. AirTalk captures that perfectly without the pressure of video or feeds.'
+  }
+];
+---
+
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <h2 class="section-title" data-animate="fade-up">What People Are Saying</h2>
+    <p class="section-subtitle" data-animate="fade-up">
+      Real feedback from our growing community
+    </p>
+    <div class="testimonials-grid">
+      {testimonials.map((testimonial, index) => (
+        <div class="testimonial-card" 
+             data-animate="flip-left" 
+             style={`transition-delay: ${index * 0.1}s`}>
+          <div class="testimonial-avatar">{testimonial.avatar}</div>
+          <p class="testimonial-quote">"{testimonial.quote}"</p>
+          <div class="testimonial-author">
+            <p class="author-name">{testimonial.name}</p>
+            <p class="author-role">{testimonial.role}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+  <!-- Decorative arrow -->
+  <img src="/curved-arrow-down.svg" 
+       alt="" 
+       style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 100px; opacity: 0.2;"
+       data-animate="fade-up" />
+</section>
+

@@ -1,0 +1,40 @@
+---
+---
+
+<nav class="navbar">
+  <div class="container">
+    <div class="nav-content">
+      <div class="nav-logo">
+        <span class="logo-icon">🎤</span>
+        <span class="logo-text">AirTalk</span>
+      </div>
+      
+      <button class="mobile-menu-btn" id="mobile-menu-btn">
+        ☰
+      </button>
+      
+      <div class="nav-links" id="nav-links">
+        <a href="/">Home</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <a href="/blog">Blog</a>
+      </div>
+      
+      <button class="nav-cta">Start Chatting</button>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+  const navLinks = document.getElementById('nav-links');
+  
+  if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+      mobileMenuBtn.textContent = navLinks.classList.contains('open') ? '✕' : '☰';
+    });
+  }
+</script>
+

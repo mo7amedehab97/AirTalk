@@ -1,0 +1,56 @@
+---
+const steps = [
+  {
+    number: '1',
+    title: 'Choose Your Mode',
+    description: 'Select voice or text chat based on your preference',
+    icon: '🎯'
+  },
+  {
+    number: '2',
+    title: 'Get Matched',
+    description: 'We\'ll connect you with someone ready to chat',
+    icon: '🤝'
+  },
+  {
+    number: '3',
+    title: 'Start Talking',
+    description: 'Have genuine conversations with real people',
+    icon: '💬'
+  }
+];
+---
+
+<section class="how-it-works" id="how-it-works">
+  <div class="container">
+    <h2 class="section-title" data-animate="fade-up">How It Works</h2>
+    <p class="section-subtitle" data-animate="fade-up">
+      Get started in seconds, no signup required
+    </p>
+    <div class="steps-grid">
+      {steps.map((step, index) => (
+        <div class="step-card" data-animate="zoom-in" style={`transition-delay: ${index * 0.15}s`}>
+          <div class="step-number">{step.number}</div>
+          <div class="step-icon">{step.icon}</div>
+          <h3 class="step-title">{step.title}</h3>
+          <p class="step-description">{step.description}</p>
+          {index < 2 && (
+            <img src="/curved-arrow-right.svg" 
+                 alt="arrow" 
+                 style="position: absolute; right: -80px; top: 50%; transform: translateY(-50%); width: 120px; opacity: 0.6; display: none;" 
+                 class="arrow-connector" />
+          )}
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  @media (min-width: 900px) {
+    .arrow-connector {
+      display: block !important;
+    }
+  }
+</style>
+

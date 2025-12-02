@@ -1,0 +1,35 @@
+<svg width="150" height="200" viewBox="0 0 150 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="arrowGradientDown" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Curved arrow path -->
+  <path d="M 75 20 Q 120 100, 75 180" 
+        stroke="url(#arrowGradientDown)" 
+        stroke-width="4" 
+        fill="none"
+        stroke-linecap="round"
+        stroke-dasharray="300"
+        stroke-dashoffset="300">
+    <animate attributeName="stroke-dashoffset" 
+             from="300" 
+             to="0" 
+             dur="2s" 
+             repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Arrow head -->
+  <path d="M 75 180 L 65 165 L 85 165 Z" 
+        fill="url(#arrowGradientDown)">
+    <animateTransform
+      attributeName="transform"
+      type="translate"
+      values="0,0;0,-5;0,0"
+      dur="1s"
+      repeatCount="indefinite"/>
+  </path>
+</svg>
+

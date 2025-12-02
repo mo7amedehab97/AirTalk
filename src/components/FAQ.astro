@@ -1,0 +1,98 @@
+---
+const faqs = [
+  {
+    question: 'Is AirTalk safe compared to other chat platforms?',
+    answer: 'Yes! AirTalk uses AI-powered moderation, encrypted connections, and anonymous matching to ensure a safe environment for everyone.'
+  },
+  {
+    question: 'How does AirTalk work?',
+    answer: 'Simply click "Start Chat" and we\'ll match you with someone ready to talk. No signup, no profiles - just instant conversations.'
+  },
+  {
+    question: 'Do I need an account or phone number to join?',
+    answer: 'Nope! AirTalk is completely anonymous. No accounts, no phone numbers, no personal information required.'
+  },
+  {
+    question: 'Why is AirTalk voice-focused?',
+    answer: 'Voice conversations feel more authentic and human. There\'s no pressure of appearance or curated profiles - just real conversations.'
+  },
+  {
+    question: 'Can I choose who I talk to?',
+    answer: 'We match you randomly with available users. If you don\'t click with someone, you can always skip to the next conversation.'
+  }
+];
+---
+
+<section class="faq" id="faq">
+  <div class="container">
+    <h2 class="section-title" data-animate="fade-up">Frequently Asked Questions</h2>
+    <div class="faq-list">
+      {faqs.map((faq, index) => (
+        <div class="faq-item" 
+             data-faq-index={index}
+             data-animate="fade-right"
+             style={`transition-delay: ${index * 0.08}s`}>
+          <div class="faq-question">
+            <h3>{faq.question}</h3>
+            <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>{faq.answer}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  // FAQ toggle functionality
+  document.querySelectorAll('.faq-item').forEach((item) => {
+    const question = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const icon = item.querySelector('.faq-icon');
+    
+    question?.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      
+      // Close all other items
+      document.querySelectorAll('.faq-item').forEach((otherItem) => {
+        otherItem.classList.remove('open');
+        const otherIcon = otherItem.querySelector('.faq-icon');
+        if (otherIcon) otherIcon.textContent = '+';
+      });
+      
+      // Toggle current item
+      if (!isOpen) {
+        item.classList.add('open');
+        if (icon) icon.textContent = '−';
+      }
+    });
+  });
+</script>
+
+<style>
+  .faq-answer {
+    display: none;
+    padding: 0 2rem 1.5rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .faq-item.open .faq-answer {
+    display: block;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+

@@ -1,0 +1,77 @@
+<svg width="300" height="200" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="animatedGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6;stop-opacity:1">
+        <animate attributeName="stop-color" 
+                 values="#8b5cf6;#ec4899;#a78bfa;#8b5cf6" 
+                 dur="3s" 
+                 repeatCount="indefinite"/>
+      </stop>
+      <stop offset="100%" style="stop-color:#ec4899;stop-opacity:1">
+        <animate attributeName="stop-color" 
+                 values="#ec4899;#a78bfa;#8b5cf6;#ec4899" 
+                 dur="3s" 
+                 repeatCount="indefinite"/>
+      </stop>
+    </linearGradient>
+    
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Main curved path -->
+  <path d="M 30 100 Q 100 30, 180 100 T 270 100" 
+        stroke="url(#animatedGradient)" 
+        stroke-width="4" 
+        fill="none"
+        stroke-linecap="round"
+        stroke-dasharray="500"
+        stroke-dashoffset="500"
+        filter="url(#glow)">
+    <animate attributeName="stroke-dashoffset" 
+             from="500" 
+             to="0" 
+             dur="2s" 
+             repeatCount="indefinite"/>
+    <animate attributeName="stroke-width"
+             values="4;6;4"
+             dur="1.5s"
+             repeatCount="indefinite"/>
+  </path>
+  
+  <!-- Animated dots along the path -->
+  <circle r="4" fill="url(#animatedGradient)">
+    <animateMotion dur="2s" repeatCount="indefinite" path="M 30 100 Q 100 30, 180 100 T 270 100"/>
+    <animate attributeName="r" values="4;6;4" dur="0.8s" repeatCount="indefinite"/>
+  </circle>
+  
+  <circle r="4" fill="url(#animatedGradient)">
+    <animateMotion dur="2s" repeatCount="indefinite" begin="0.3s" path="M 30 100 Q 100 30, 180 100 T 270 100"/>
+    <animate attributeName="r" values="4;6;4" dur="0.8s" repeatCount="indefinite" begin="0.3s"/>
+  </circle>
+  
+  <circle r="4" fill="url(#animatedGradient)">
+    <animateMotion dur="2s" repeatCount="indefinite" begin="0.6s" path="M 30 100 Q 100 30, 180 100 T 270 100"/>
+    <animate attributeName="r" values="4;6;4" dur="0.8s" repeatCount="indefinite" begin="0.6s"/>
+  </circle>
+  
+  <!-- Arrow head at the end -->
+  <g transform="translate(270, 100)">
+    <path d="M 0 0 L -15 -10 L -10 0 L -15 10 Z" 
+          fill="url(#animatedGradient)"
+          filter="url(#glow)">
+      <animateTransform
+        attributeName="transform"
+        type="scale"
+        values="1;1.3;1"
+        dur="1s"
+        repeatCount="indefinite"/>
+    </path>
+  </g>
+</svg>
+

@@ -1,0 +1,50 @@
+<svg width="100" height="150" viewBox="0 0 100 150" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bounceGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#a78bfa;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#f472b6;stop-opacity:1"/>
+    </linearGradient>
+    
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#8b5cf6" flood-opacity="0.5"/>
+    </filter>
+  </defs>
+  
+  <!-- Animated bouncing arrow -->
+  <g filter="url(#shadow)">
+    <!-- Arrow shaft -->
+    <line x1="50" y1="20" x2="50" y2="110" 
+          stroke="url(#bounceGradient)" 
+          stroke-width="5" 
+          stroke-linecap="round">
+      <animate attributeName="y1" 
+               values="20;30;20" 
+               dur="1s" 
+               repeatCount="indefinite"/>
+      <animate attributeName="y2" 
+               values="110;120;110" 
+               dur="1s" 
+               repeatCount="indefinite"/>
+    </line>
+    
+    <!-- Arrow head -->
+    <path d="M 50 110 L 35 95 M 50 110 L 65 95" 
+          stroke="url(#bounceGradient)" 
+          stroke-width="5" 
+          stroke-linecap="round">
+      <animateTransform
+        attributeName="transform"
+        type="translate"
+        values="0,0;0,10;0,0"
+        dur="1s"
+        repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Pulsing circle at the base -->
+  <circle cx="50" cy="130" r="8" fill="url(#bounceGradient)" opacity="0.3">
+    <animate attributeName="r" values="8;12;8" dur="1s" repeatCount="indefinite"/>
+    <animate attributeName="opacity" values="0.3;0.6;0.3" dur="1s" repeatCount="indefinite"/>
+  </circle>
+</svg>
+

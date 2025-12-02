@@ -1,0 +1,63 @@
+---
+const features = [
+  {
+    icon: '🎤',
+    title: 'Real Voices',
+    description: 'Connect through authentic voice conversations. No filters, just real human connection.'
+  },
+  {
+    icon: '🚫',
+    title: 'No Endless Scrolling',
+    description: 'No feeds to scroll. Just meaningful one-on-one conversations with strangers.'
+  },
+  {
+    icon: '🔒',
+    title: 'Completely Anonymous',
+    description: 'No accounts, no profiles, no tracking. Your privacy is our priority.'
+  },
+  {
+    icon: '💬',
+    title: 'Just Talk',
+    description: 'Skip the small talk. Dive into real conversations about what matters to you.'
+  },
+  {
+    icon: '🌍',
+    title: 'Global Community',
+    description: 'Meet people from all over the world. Connect across cultures and time zones.'
+  },
+  {
+    icon: '🛡️',
+    title: 'Safe & Moderated',
+    description: 'AI-powered moderation keeps conversations respectful and safe for everyone.'
+  }
+];
+---
+
+<section class="features" id="features">
+  <div class="container">
+    <div style="position: relative;">
+      <img src="/curved-arrow.svg" 
+           alt="" 
+           style="position: absolute; top: -50px; left: 20%; width: 150px; opacity: 0.3; transform: rotate(-15deg);"
+           data-animate="fade-right" />
+      <h2 class="section-title" data-animate="fade-up">Why Choose AirTalk?</h2>
+      <img src="/animated-arrow.svg" 
+           alt="" 
+           style="position: absolute; top: -40px; right: 15%; width: 180px; opacity: 0.3; transform: rotate(10deg) scaleX(-1);"
+           data-animate="fade-left" />
+    </div>
+    <p class="section-subtitle" data-animate="fade-up">
+      A safe chat alternative where people connect authentically
+    </p>
+    <div class="features-grid">
+      {features.map((feature, index) => (
+        <div class="feature-card" data-animate="fade-up" style={`transition-delay: ${index * 0.1}s`}>
+          <div class="feature-icon">{feature.icon}</div>
+          <h3 class="feature-title">{feature.title}</h3>
+          <p class="feature-description">{feature.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
