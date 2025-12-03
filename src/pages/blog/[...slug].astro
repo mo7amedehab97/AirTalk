@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Navbar from '../../components/Navbar.astro';
 import Footer from '../../components/Footer.astro';
 import SEO from '../../components/SEO.astro';
+import '../../styles/global.css';
 
 export async function getStaticPaths() {
   const blogEntries = await getCollection('blog');
@@ -36,7 +37,6 @@ const publishedTime = entry.data.date.toISOString();
       modifiedTime={publishedTime}
       author={entry.data.author}
     />
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <Navbar />

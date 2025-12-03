@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
 import SEO from '../components/SEO.astro';
+import '../styles/global.css';
 
 const allPosts = await getCollection('blog');
 const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -23,7 +24,6 @@ const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
       keywords="chat blog, voice chat tips, talk to strangers guide, random chat advice, online chat tips, stranger chat safety, voice call guides"
       canonical="https://www.airtalk.live/blog"
     />
-    <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
     <Navbar />
