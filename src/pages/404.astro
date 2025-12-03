@@ -1,0 +1,225 @@
+---
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <SEO 
+      title="404 - Page Not Found | AirTalk"
+      description="The page you're looking for doesn't exist. Return to AirTalk homepage to start talking to strangers."
+      canonical="https://www.airtalk.live/404"
+      noindex={true}
+    />
+    <link rel="stylesheet" href="/src/styles/global.css" />
+  </head>
+  <body>
+    <Navbar />
+    
+    <section class="error-page">
+      <div class="container">
+        <div class="error-content">
+          <div class="error-animation">
+            <span class="error-number">4</span>
+            <span class="error-icon">😢</span>
+            <span class="error-number">4</span>
+          </div>
+          <h1 class="error-title">Oops! Page Not Found</h1>
+          <p class="error-description">
+            The page you're looking for seems to have wandered off into the digital void.
+            Let's get you back to talking with real people!
+          </p>
+          <div class="error-actions">
+            <a href="/" class="error-btn primary">
+              <span class="icon">🏠</span>
+              Back to Homepage
+            </a>
+            <a href="/blog" class="error-btn secondary">
+              <span class="icon">📚</span>
+              Read Our Blog
+            </a>
+          </div>
+          <div class="error-suggestions">
+            <h2>Popular Pages:</h2>
+            <ul>
+              <li><a href="/">Start Voice Chat</a></li>
+              <li><a href="/about">About AirTalk</a></li>
+              <li><a href="/blog">Blog Articles</a></li>
+              <li><a href="/contact">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Footer />
+  </body>
+</html>
+
+<style>
+  .error-page {
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8rem 0 4rem;
+    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+  }
+
+  .error-content {
+    text-align: center;
+    max-width: 600px;
+  }
+
+  .error-animation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    font-size: 6rem;
+    font-weight: 800;
+  }
+
+  .error-number {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .error-number:last-child {
+    animation-delay: 0.5s;
+  }
+
+  .error-icon {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.2);
+    }
+  }
+
+  .error-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+
+  .error-description {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 3rem;
+    line-height: 1.7;
+  }
+
+  .error-actions {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 4rem;
+  }
+
+  .error-btn {
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+    box-shadow: var(--shadow);
+  }
+
+  .error-btn.primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: white;
+  }
+
+  .error-btn.secondary {
+    background: var(--bg-card);
+    color: var(--primary-light);
+    border: 1px solid var(--border);
+  }
+
+  .error-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .error-suggestions {
+    background: var(--bg-card);
+    padding: 2rem;
+    border-radius: 1.5rem;
+    border: 1px solid var(--border);
+  }
+
+  .error-suggestions h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .error-suggestions ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .error-suggestions a {
+    color: var(--primary-light);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.05rem;
+  }
+
+  .error-suggestions a:hover {
+    color: var(--accent-light);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .error-animation {
+      font-size: 4rem;
+    }
+
+    .error-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .error-btn {
+      justify-content: center;
+    }
+  }
+</style>
+

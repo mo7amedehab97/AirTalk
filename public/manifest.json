@@ -1,0 +1,24 @@
+{
+  "name": "AirTalk - Talk to Strangers",
+  "short_name": "AirTalk",
+  "description": "Connect with strangers worldwide through anonymous voice or text chat. Free Omegle alternative.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0f0a1e",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["social", "communication"],
+  "lang": "en-US",
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
+}
+

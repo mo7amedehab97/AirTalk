@@ -2,36 +2,38 @@
 const steps = [
   {
     number: '1',
-    title: 'Choose Your Mode',
-    description: 'Select voice or text chat based on your preference',
-    icon: '🎯'
+    title: 'Click Start',
+    description: 'No signup, no forms, no waiting. Join 15,000 daily users instantly.',
+    icon: '/step-start.svg'
   },
   {
     number: '2',
     title: 'Get Matched',
-    description: 'We\'ll connect you with someone ready to chat',
-    icon: '🤝'
+    description: 'Instantly paired with someone from our 100,000+ community. Voice-only, safe.',
+    icon: '/step-matched.svg'
   },
   {
     number: '3',
     title: 'Start Talking',
-    description: 'Have genuine conversations with real people',
-    icon: '💬'
+    description: 'Practice languages, make friends, improve skills. That simple.',
+    icon: '/step-talking.svg'
   }
 ];
 ---
 
 <section class="how-it-works" id="how-it-works">
   <div class="container">
-    <h2 class="section-title" data-animate="fade-up">How It Works</h2>
+    <h2 class="section-title" data-animate="fade-up">Join 15,000 Daily Users in 3 Steps</h2>
     <p class="section-subtitle" data-animate="fade-up">
-      Get started in seconds, no signup required
+      Trusted by hundreds of thousands since 2022
     </p>
     <div class="steps-grid">
       {steps.map((step, index) => (
         <div class="step-card" data-animate="zoom-in" style={`transition-delay: ${index * 0.15}s`}>
           <div class="step-number">{step.number}</div>
-          <div class="step-icon">{step.icon}</div>
+          <div class="step-icon">
+            <img src={step.icon} alt="" width="180" height="140" loading="lazy" />
+          </div>
           <h3 class="step-title">{step.title}</h3>
           <p class="step-description">{step.description}</p>
           {index < 2 && (

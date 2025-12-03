@@ -6,6 +6,7 @@ import HowItWorks from '../components/HowItWorks.astro';
 import Testimonials from '../components/Testimonials.astro';
 import FAQ from '../components/FAQ.astro';
 import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
 ---
 
 <!DOCTYPE html>
@@ -14,9 +15,18 @@ import Footer from '../components/Footer.astro';
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
-    <title>AirTalk - Talk to Strangers by Voice or Text</title>
-    <meta name="description" content="Connect with real people worldwide through anonymous voice or text chat. No video, no profiles, no pressure. Just genuine conversations." />
+    <SEO 
+      title="AirTalk - World's First Voice-Only Random Chat | 15K Daily Users"
+      description="Join the largest voice chat community with 100,000+ members and 15,000 daily users. Pioneer of voice-only random chat since 2022. Safe, trusted by hundreds of thousands, perfect for language learning, introverts, and visually impaired. No video, no unwanted content."
+      keywords="voice only chat, talk to strangers, largest voice chat community, voice chat platform, omegle alternative, anonymous chat, random voice chat, language learning chat, chat for introverts, accessible chat for blind, safe random chat, pioneer voice chat"
+      canonical="https://www.airtalk.live/"
+      ogType="website"
+    />
   </head>
   <body>
     <Navbar />
@@ -107,7 +117,7 @@ import Footer from '../components/Footer.astro';
   }
 
   body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    font-family: 'Signika', sans-serif;
     color: var(--text);
     background: var(--bg-dark);
     line-height: 1.6;
@@ -280,7 +290,6 @@ import Footer from '../components/Footer.astro';
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     transition: all 0.3s ease;
-    position: relative;
   }
   
   .navbar.scrolled {
@@ -298,14 +307,18 @@ import Footer from '../components/Footer.astro';
   .nav-logo {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--text);
+    text-decoration: none;
   }
 
-  .logo-icon {
-    font-size: 1.8rem;
+  .logo-img {
+    height: 45px;
+    width: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .nav-logo:hover .logo-img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.5));
   }
 
   .nav-links {
@@ -705,14 +718,24 @@ import Footer from '../components/Footer.astro';
   }
 
   .feature-icon {
-    font-size: 3rem;
+    width: 100%;
+    max-width: 200px;
+    height: 150px;
     margin-bottom: 1.5rem;
-    display: inline-block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     transition: transform 0.3s ease;
+  }
+
+  .feature-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   
   .feature-card:hover .feature-icon {
-    transform: scale(1.15) rotate(5deg);
+    transform: scale(1.08);
   }
 
   .feature-title {
@@ -803,10 +826,20 @@ import Footer from '../components/Footer.astro';
   }
 
   .step-icon {
-    font-size: 4rem;
-    margin: 3rem 0 1.5rem;
-    display: inline-block;
+    width: 100%;
+    max-width: 180px;
+    height: 140px;
+    margin: 2rem auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     animation: float 3s ease-in-out infinite;
+  }
+
+  .step-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
   
   @keyframes float {
@@ -1071,6 +1104,27 @@ import Footer from '../components/Footer.astro';
     margin-bottom: 3rem;
   }
 
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .footer-logo {
+    display: inline-block;
+  }
+
+  .footer-logo-img {
+    height: 50px;
+    width: auto;
+    transition: transform 0.3s ease, filter 0.3s ease;
+  }
+
+  .footer-logo:hover .footer-logo-img {
+    transform: scale(1.05);
+    filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.5));
+  }
+
   .footer-title {
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -1117,7 +1171,7 @@ import Footer from '../components/Footer.astro';
   /* Responsive Design */
   @media (max-width: 768px) {
     .container {
-      padding: 0 1.5rem;
+      padding: 0 2rem;
     }
 
     .nav-links {
@@ -1158,6 +1212,48 @@ import Footer from '../components/Footer.astro';
     .steps-grid,
     .footer-content {
       grid-template-columns: 1fr;
+    }
+    
+    .feature-card,
+    .testimonial-card {
+      padding: 1.5rem;
+    }
+    
+    .section-title {
+      font-size: 1.75rem;
+    }
+    
+    .section-subtitle {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 2rem;
+    }
+    
+    .features,
+    .how-it-works,
+    .testimonials,
+    .faq {
+      padding: 4rem 0;
+    }
+    
+    .feature-card,
+    .testimonial-card {
+      padding: 1.25rem;
+    }
+    
+    .feature-title,
+    .step-title {
+      font-size: 1.25rem;
+    }
+    
+    .feature-description,
+    .step-description {
+      font-size: 0.9rem;
     }
   }
 </style>

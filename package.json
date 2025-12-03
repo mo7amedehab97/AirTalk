@@ -17,5 +17,9 @@
     "astro": "^5.16.3",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "lightningcss": "^1.30.2",
+    "terser": "^5.44.1"
   }
 }

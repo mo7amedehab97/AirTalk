@@ -1,49 +1,81 @@
 ---
 const faqs = [
   {
-    question: 'Is AirTalk safe compared to other chat platforms?',
-    answer: 'Yes! AirTalk uses AI-powered moderation, encrypted connections, and anonymous matching to ensure a safe environment for everyone.'
+    question: 'Why is AirTalk the best voice chat platform?',
+    answer: 'AirTalk pioneered voice-only random chat in 2022, making us the FIRST dedicated voice chat platform. With over 100,000 members, 15,000 daily users, and 3 years of proven reliability, we\'re the largest and most trusted voice chat community worldwide. Hundreds of thousands have chosen us - that\'s the trust you can count on.'
   },
   {
-    question: 'How does AirTalk work?',
-    answer: 'Simply click "Start Chat" and we\'ll match you with someone ready to talk. No signup, no profiles - just instant conversations.'
+    question: 'Is AirTalk safe with voice-only? Why no video?',
+    answer: 'Voice-only is SAFER! We pioneered this approach because it completely eliminates unwanted and disturbing visual content that plagues video platforms. No inappropriate exposure, no risks - just authentic conversations. This is why we\'ve built the largest voice chat community over 3 years. Safety first, always.'
   },
   {
-    question: 'Do I need an account or phone number to join?',
-    answer: 'Nope! AirTalk is completely anonymous. No accounts, no phone numbers, no personal information required.'
+    question: 'How many people use AirTalk?',
+    answer: 'We serve 15,000+ daily active users and have over 100,000 community members. Hundreds of thousands have chosen AirTalk since 2022. We\'re the world\'s largest voice chat platform, and our size proves our reliability. When you see this many people trust us, you gain confidence too.'
   },
   {
-    question: 'Why is AirTalk voice-focused?',
-    answer: 'Voice conversations feel more authentic and human. There\'s no pressure of appearance or curated profiles - just real conversations.'
+    question: 'Can blind people or introverts use AirTalk?',
+    answer: 'Absolutely! AirTalk is perfect for visually impaired and blind users - our voice-first design ensures full accessibility. It\'s also ideal for introverts who prefer speaking without video pressure. Everyone participates equally through voice, making genuine connections without judgment.'
   },
   {
-    question: 'Can I choose who I talk to?',
-    answer: 'We match you randomly with available users. If you don\'t click with someone, you can always skip to the next conversation.'
+    question: 'Can I practice languages on AirTalk?',
+    answer: 'Yes! With 15,000 daily users from around the world, AirTalk is perfect for language learning. Practice with native speakers, improve pronunciation, and build fluency through real conversations. Many users join specifically to enhance their language and communication skills.'
+  },
+  {
+    question: 'How long has AirTalk been running?',
+    answer: 'AirTalk has been stable and reliable for 3 years since pioneering voice-only chat in 2022. Throughout these years, hundreds of thousands have trusted us, and we\'ve continuously improved our service. Our proven track record of reliability sets us apart from newer platforms.'
+  },
+  {
+    question: 'Is AirTalk free? Do I need an account?',
+    answer: 'AirTalk is 100% free forever with no hidden costs. No accounts, no phone numbers, no personal information required. Just click and start talking to strangers instantly. Join our 15,000 daily users without any barriers.'
+  },
+  {
+    question: 'How is AirTalk different from Omegle?',
+    answer: 'We pioneered voice-only random chat in 2022, while Omegle focused on video. Voice-only eliminates ALL unwanted content and is safer for users. Plus, we\'re the largest voice chat community (100,000+ members) with proven stability over 3 years. We\'re the pioneer, they\'re the past.'
   }
 ];
+
+// Create FAQPage schema for rich snippets in Google
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  'mainEntity': faqs.map(faq => ({
+    '@type': 'Question',
+    'name': faq.question,
+    'acceptedAnswer': {
+      '@type': 'Answer',
+      'text': faq.answer
+    }
+  }))
+};
 ---
 
-<section class="faq" id="faq">
+<section class="faq" id="faq" itemscope itemtype="https://schema.org/FAQPage">
   <div class="container">
-    <h2 class="section-title" data-animate="fade-up">Frequently Asked Questions</h2>
+    <h2 class="section-title" data-animate="fade-up">Frequently Asked Questions About Talking to Strangers</h2>
     <div class="faq-list">
       {faqs.map((faq, index) => (
         <div class="faq-item" 
              data-faq-index={index}
              data-animate="fade-right"
-             style={`transition-delay: ${index * 0.08}s`}>
+             style={`transition-delay: ${index * 0.08}s`}
+             itemscope
+             itemprop="mainEntity"
+             itemtype="https://schema.org/Question">
           <div class="faq-question">
-            <h3>{faq.question}</h3>
-            <span class="faq-icon">+</span>
+            <h3 itemprop="name">{faq.question}</h3>
+            <span class="faq-icon" aria-hidden="true">+</span>
           </div>
-          <div class="faq-answer">
-            <p>{faq.answer}</p>
+          <div class="faq-answer" itemscope itemprop="acceptedAnswer" itemtype="https://schema.org/Answer">
+            <p itemprop="text">{faq.answer}</p>
           </div>
         </div>
       ))}
     </div>
   </div>
 </section>
+
+<!-- FAQ Schema for Google Rich Snippets -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
 
 <script>
   // FAQ toggle functionality
@@ -82,6 +114,9 @@ const faqs = [
   
   .faq-item.open .faq-answer {
     display: block;
+  }
+  .section-title{
+    margin-bottom: 4rem;
   }
   
   @keyframes fadeIn {

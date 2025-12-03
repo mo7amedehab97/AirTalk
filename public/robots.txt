@@ -1,0 +1,27 @@
+# Robots.txt for AirTalk
+# https://www.airtalk.live/robots.txt
+
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_astro/
+
+# Sitemap location
+Sitemap: https://www.airtalk.live/sitemap.xml
+Sitemap: https://www.airtalk.live/sitemap-index.xml
+
+# Crawl-delay for specific bots (optional)
+User-agent: Googlebot
+Crawl-delay: 0
+
+User-agent: Bingbot
+Crawl-delay: 0
+
+# Block bad bots
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10
+

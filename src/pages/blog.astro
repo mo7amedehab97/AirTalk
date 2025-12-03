@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import SEO from '../components/SEO.astro';
 
 const allPosts = await getCollection('blog');
 const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
@@ -13,8 +14,15 @@ const sortedPosts = allPosts.sort((a, b) => b.data.date.valueOf() - a.data.date.
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <title>AirTalk Blog – Tips, Stories & Live Chat Insights</title>
-    <meta name="description" content="Explore articles about random chat, voice calling, and connecting with strangers online." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+    <SEO 
+      title="AirTalk Blog - Chat Tips, Voice Call Guides & Stranger Talk Insights"
+      description="Read expert articles about talking to strangers, voice chat tips, anonymous chatting safety, making friends online, and getting the most from random chat platforms. Learn how to connect better."
+      keywords="chat blog, voice chat tips, talk to strangers guide, random chat advice, online chat tips, stranger chat safety, voice call guides"
+      canonical="https://www.airtalk.live/blog"
+    />
     <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>

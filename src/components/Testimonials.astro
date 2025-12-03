@@ -1,38 +1,34 @@
 ---
 const testimonials = [
   {
-    name: 'Alex M.',
-    role: 'Early Tester',
-    avatar: '🌟',
-    quote: 'Finally, a voice-only chat platform that actually feels safe. I never liked video — this is way more authentic and comfortable.'
+    name: 'Maria S.',
+    role: '2-Year Member',
+    quote: 'I\'m visually impaired and AirTalk is perfect for me. Voice-only means I can participate just like everyone else. Been using it for 2 years and it\'s so reliable!'
   },
   {
-    name: 'Jordan K.',
-    role: 'Community Member',
-    avatar: '🎭',
-    quote: 'Most apps are just noise, but AirTalk actually feels like a place to make new friends. It\'s simple, safe, and real — exactly what I\'ve been looking for.'
+    name: 'David K.',
+    role: 'Language Learner',
+    quote: 'I\'ve practiced English with hundreds of people here. 15,000 daily users means I always find native speakers. My fluency improved dramatically in just 6 months!'
   },
   {
-    name: 'Sam T.',
-    role: 'Beta User',
-    avatar: '💫',
-    quote: 'There\'s something different about late-night conversations — people open up more. AirTalk captures that perfectly without the pressure of video or feeds.'
+    name: 'Sarah T.',
+    role: 'Introvert User',
+    quote: 'As an introvert, video chat terrified me. AirTalk\'s voice-only approach changed everything. I can be myself without camera anxiety. The community is amazing!'
   }
 ];
 ---
 
 <section class="testimonials" id="testimonials">
   <div class="container">
-    <h2 class="section-title" data-animate="fade-up">What People Are Saying</h2>
+    <h2 class="section-title" data-animate="fade-up">Trusted by 100,000+ Users Worldwide</h2>
     <p class="section-subtitle" data-animate="fade-up">
-      Real feedback from our growing community
+      Real stories from our 3-year community of 15,000 daily users
     </p>
     <div class="testimonials-grid">
       {testimonials.map((testimonial, index) => (
         <div class="testimonial-card" 
              data-animate="flip-left" 
              style={`transition-delay: ${index * 0.1}s`}>
-          <div class="testimonial-avatar">{testimonial.avatar}</div>
           <p class="testimonial-quote">"{testimonial.quote}"</p>
           <div class="testimonial-author">
             <p class="author-name">{testimonial.name}</p>
@@ -43,9 +39,14 @@ const testimonials = [
     </div>
   </div>
   <!-- Decorative arrow -->
-  <img src="/curved-arrow-down.svg" 
-       alt="" 
-       style="position: absolute; bottom: -20px; left: 50%; transform: translateX(-50%); width: 100px; opacity: 0.2;"
-       data-animate="fade-up" />
+
+  <div style="display: flex; justify-content: center; align-items: center; margin-top: .5rem; margin-bottom: .5rem;">
+    <img
+      src="/curved-arrow-down.svg"
+      alt=""
+      style="position: relative; width: 100px; opacity: 0.2; margin: 12px;"
+      data-animate="fade-up"
+    />
+  </div>
 </section>
 

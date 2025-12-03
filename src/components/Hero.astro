@@ -1,36 +1,468 @@
 ---
 ---
 
-<section class="hero">
+<section class="hero" itemscope itemtype="https://schema.org/WebApplication">
   <div class="stars"></div>
+  
+  <!-- Decorative curved lines -->
+  <svg class="hero-lines" viewBox="0 0 1440 900" preserveAspectRatio="none" aria-hidden="true">
+    <!-- Top flowing line -->
+    <path class="line line-1" d="M-100,80 Q200,20 400,100 T800,60 T1200,120 T1600,80" fill="none" stroke="url(#lineGradient1)" stroke-width="2"/>
+    <!-- Middle flowing line -->
+    <path class="line line-2" d="M-50,200 Q250,280 500,200 T950,260 T1400,180 T1600,220" fill="none" stroke="url(#lineGradient2)" stroke-width="1.5"/>
+    <!-- Bottom flowing line -->
+    <path class="line line-3" d="M0,700 Q300,750 600,680 T1100,720 T1500,660" fill="none" stroke="url(#lineGradient1)" stroke-width="1"/>
+    
+    <!-- Gradient definitions -->
+    <defs>
+      <linearGradient id="lineGradient1" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:rgba(139, 92, 246, 0.3);stop-opacity:1" />
+        <stop offset="50%" style="stop-color:rgba(167, 139, 250, 0.5);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgba(139, 92, 246, 0.2);stop-opacity:1" />
+      </linearGradient>
+      <linearGradient id="lineGradient2" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" style="stop-color:rgba(236, 72, 153, 0.2);stop-opacity:1" />
+        <stop offset="50%" style="stop-color:rgba(244, 114, 182, 0.4);stop-opacity:1" />
+        <stop offset="100%" style="stop-color:rgba(236, 72, 153, 0.15);stop-opacity:1" />
+      </linearGradient>
+    </defs>
+  </svg>
+
   <div class="container">
-    <div class="hero-content">
-      <div class="hero-badge">Anonymous • Safe • Real</div>
-      <h1 class="hero-title">
-        Talk to Strangers by <br/>
-        <span class="gradient-text">Voice</span> or <span class="gradient-text">Text</span>
-      </h1>
-      <p class="hero-subtitle">
-        Connect with real people worldwide through voice or text chat.
-        No video, no profiles, no pressure. Just genuine conversations.
-      </p>
-      <div class="hero-buttons">
-        <button class="cta-button voice">
-          <span class="icon">🎤</span>
-          Start a Voice Chat
-        </button>
-        <button class="cta-button text">
-          <span class="icon">💬</span>
-          Start a Text Chat
-        </button>
+    <div class="hero-grid">
+      <!-- Left side: Content -->
+      <div class="hero-content">
+        <div class="hero-badge">🏆 Pioneer in Voice-Only Random Chat Since 2022</div>
+        <h1 class="hero-title" itemprop="name">
+          Talk to Strangers by <br/>
+          <span class="gradient-text">Voice Only</span>
+        </h1>
+        <p class="hero-subtitle" itemprop="description">
+          Join the world's largest voice chat community with over 15,000 daily users. 
+          The first and most trusted voice-only random chat platform. Connect anonymously 
+          with strangers worldwide - no video, no profiles, no pressure. 
+          Safe, stable, and chosen by hundreds of thousands since 2022.
+        </p>
+        <div class="trust-stats">
+          <div class="stat">
+            <strong>15,000+</strong>
+            <span>Daily Users</span>
+          </div>
+          <div class="stat">
+            <strong>100,000+</strong>
+            <span>Community Members</span>
+          </div>
+          <div class="stat">
+            <strong>3 Years</strong>
+            <span>Trusted Service</span>
+          </div>
+        </div>
+        <div class="hero-buttons">
+          <button class="cta-button voice" aria-label="Start a voice chat with strangers">
+            <span class="icon" aria-hidden="true">🎤</span>
+            Start Voice Chat
+          </button>
+          <button class="cta-button text" aria-label="Start a text chat with strangers">
+            <span class="icon" aria-hidden="true">💬</span>
+            Start Text Chat
+          </button>
+        </div>
+        <p class="hero-note">
+          🔒 100% Anonymous • No signup required • Safe & Moderated • Free Forever
+        </p>
       </div>
-      <p class="hero-note">
-        🔒 100% Anonymous • No signup required • Safe & Moderated
-      </p>
-      <div class="scroll-indicator">
-        <img src="/bounce-arrow.svg" alt="Scroll down" style="width: 60px; opacity: 0.8; margin-top: 2rem;" />
+
+      <!-- Right side: Illustration with circles -->
+      <div class="hero-illustration">
+        <div class="illustration-wrapper">
+          <!-- Layered circles background -->
+          <div class="circle-layer circle-1"></div>
+          <div class="circle-layer circle-2"></div>
+          <div class="circle-layer circle-3"></div>
+          <div class="circle-layer circle-4"></div>
+          
+          <!-- SVG Illustration -->
+          <img 
+            src="/hero-illustration.svg" 
+            alt="Two people connecting through voice chat - one stepping out of a phone" 
+            class="hero-svg"
+            loading="eager"
+            width="573"
+            height="457"
+          />
+        </div>
       </div>
     </div>
   </div>
 </section>
 
+<style>
+  .hero .container {
+    width: 100%;
+    max-width: 1400px;
+    margin-top: 2.5%;
+  }
+
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    min-height: calc(100vh - 80px);
+    width: 100%;
+  }
+
+  .hero .hero-content {
+    text-align: left !important;
+    position: relative;
+    z-index: 10;
+    animation: fadeInUp 1s ease-out;
+    max-width: 100%;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Decorative lines styling */
+  .hero-lines {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.8;
+  }
+
+  .line {
+    stroke-linecap: round;
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    animation: drawLine 3s ease-out forwards;
+  }
+
+  .line-1 {
+    animation-delay: 0.2s;
+  }
+
+  .line-2 {
+    animation-delay: 0.5s;
+  }
+
+  .line-3 {
+    animation-delay: 0.8s;
+  }
+
+  @keyframes drawLine {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* Illustration section */
+  .hero-illustration {
+    position: relative;
+    z-index: 5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeInRight 1s ease-out 0.3s both;
+  }
+
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  .illustration-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 550px;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Layered circles */
+  .circle-layer {
+    position: absolute;
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .circle-1 {
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 30% 30%, 
+      rgba(99, 102, 241, 0.4) 0%, 
+      rgba(79, 70, 229, 0.6) 40%, 
+      rgba(67, 56, 202, 0.8) 70%, 
+      rgba(55, 48, 163, 0.9) 100%
+    );
+    animation: pulse-circle 6s ease-in-out infinite;
+  }
+
+  .circle-2 {
+    width: 85%;
+    height: 85%;
+    background: radial-gradient(circle at 40% 40%, 
+      rgba(129, 140, 248, 0.3) 0%, 
+      rgba(99, 102, 241, 0.4) 50%, 
+      rgba(79, 70, 229, 0.5) 100%
+    );
+    animation: pulse-circle 6s ease-in-out infinite 0.5s;
+  }
+
+  .circle-3 {
+    width: 70%;
+    height: 70%;
+    background: radial-gradient(circle at 50% 40%, 
+      rgba(165, 180, 252, 0.2) 0%, 
+      rgba(129, 140, 248, 0.35) 60%, 
+      rgba(99, 102, 241, 0.4) 100%
+    );
+    animation: pulse-circle 6s ease-in-out infinite 1s;
+  }
+
+  .circle-4 {
+    width: 55%;
+    height: 55%;
+    background: radial-gradient(circle at 50% 50%, 
+      rgba(199, 210, 254, 0.15) 0%, 
+      rgba(165, 180, 252, 0.25) 50%, 
+      rgba(129, 140, 248, 0.3) 100%
+    );
+    animation: pulse-circle 6s ease-in-out infinite 1.5s;
+  }
+
+  @keyframes pulse-circle {
+    0%, 100% {
+      transform: translate(-50%, -50%) scale(1);
+      opacity: 1;
+    }
+    50% {
+      transform: translate(-50%, -50%) scale(1.03);
+      opacity: 0.85;
+    }
+  }
+
+  /* Hero SVG illustration */
+  .hero-svg {
+    position: relative;
+    z-index: 10;
+    width: 80%;
+    height: auto;
+    max-width: 450px;
+    filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.3));
+    animation: float-svg 4s ease-in-out infinite;
+  }
+
+  @keyframes float-svg {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-15px);
+    }
+  }
+
+  /* Trust stats */
+  .trust-stats {
+    display: flex;
+    gap: 2rem;
+    justify-content: flex-start;
+    margin: 2rem 0;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.25rem;
+  }
+
+  .stat strong {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .stat span {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .hero-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: rgba(139, 92, 246, 0.2);
+    border: 1px solid var(--primary);
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+    color: var(--primary-light);
+    font-weight: 600;
+    animation: badge-glow 2s ease-in-out infinite;
+  }
+
+  @keyframes badge-glow {
+    0%, 100% {
+      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+    }
+    50% {
+      box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+    }
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-size: 200% auto;
+    animation: gradient-shift 3s ease infinite;
+  }
+
+  @keyframes gradient-shift {
+    0%, 100% {
+      background-position: 0% center;
+    }
+    50% {
+      background-position: 100% center;
+    }
+  }
+
+  .hero-subtitle {
+    font-size: clamp(1rem, 1.5vw, 1.2rem);
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    max-width: 550px;
+    line-height: 1.7;
+  }
+
+  .hero-note {
+    font-size: 0.95rem;
+    color: var(--text-dim);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 1024px) {
+    .hero-grid {
+      gap: 3rem;
+    }
+
+    .illustration-wrapper {
+      max-width: 450px;
+    }
+
+    .hero-svg {
+      max-width: 350px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+      text-align: center;
+    }
+
+    .hero-content {
+      text-align: center;
+      order: 1;
+    }
+
+    .hero-illustration {
+      order: 0;
+      margin-bottom: 1rem;
+    }
+
+    .illustration-wrapper {
+      max-width: 350px;
+    }
+
+    .hero-svg {
+      max-width: 280px;
+    }
+
+    .trust-stats {
+      justify-content: center;
+    }
+
+    .stat {
+      align-items: center;
+    }
+
+    .hero-buttons {
+      flex-direction: column;
+      align-items: stretch;
+      justify-content: center;
+    }
+
+    .hero-lines {
+      opacity: 0.4;
+    }
+
+    .trust-stats {
+      gap: 1.5rem;
+    }
+    
+    .stat strong {
+      font-size: 1.4rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .illustration-wrapper {
+      max-width: 280px;
+    }
+
+    .hero-svg {
+      max-width: 220px;
+    }
+
+    .circle-1,
+    .circle-2,
+    .circle-3,
+    .circle-4 {
+      animation: none;
+    }
+  }
+</style>

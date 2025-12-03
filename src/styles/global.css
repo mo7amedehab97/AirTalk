@@ -22,7 +22,7 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  font-family: 'Signika', sans-serif;
   color: var(--text);
   background: var(--bg-dark);
   line-height: 1.6;
@@ -142,9 +142,14 @@ body {
   margin-bottom: 4rem;
 }
 
+.features .container {
+  max-width: none;
+  padding: 0 2rem;
+}
+
 .features-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
 }
 
@@ -164,8 +169,19 @@ body {
 }
 
 .feature-icon {
-  font-size: 3rem;
+  width: 100%;
+  max-width: 200px;
+  height: 150px;
   margin-bottom: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.feature-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .feature-title {
@@ -241,7 +257,7 @@ body {
 /* Responsive Design */
 @media (max-width: 768px) {
   .container {
-    padding: 0 1.5rem;
+    padding: 0 2rem;
   }
 
   .nav-links {
@@ -268,9 +284,47 @@ body {
     display: none;
   }
 
-  .features-grid,
+  .features-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
   .footer-content {
     grid-template-columns: 1fr;
+  }
+  
+  .feature-card {
+    padding: 1.5rem;
+  }
+  
+  .section-title {
+    font-size: 1.75rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 2rem;
+  }
+  
+  .features-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .feature-card {
+    padding: 1.25rem;
+  }
+  
+  .feature-title {
+    font-size: 1.25rem;
+  }
+  
+  .feature-description {
+    font-size: 0.9rem;
   }
 }
 
