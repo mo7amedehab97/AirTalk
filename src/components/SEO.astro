@@ -18,9 +18,9 @@ const {
   description,
   canonical = Astro.url.href,
   ogType = 'website',
-  ogImage = 'https://www.airtalk.live/og-image.jpg',
+  ogImage = 'https://www.airtalk.live/og-image.png',
   keywords = 'talk to strangers, voice chat, anonymous chat, random chat, online chat, voice call strangers, chat with strangers, omegle alternative, meet new people, make friends online',
-  author = 'AirTalk',
+  author = 'AirTALK',
   publishedTime,
   modifiedTime,
   article = false,
@@ -28,8 +28,10 @@ const {
 } = Astro.props;
 
 const siteUrl = 'https://www.airtalk.live';
-const siteName = 'AirTalk';
+const siteName = 'AirTALK';
 const twitterHandle = '@airtalk';
+const logoUrl = `${siteUrl}/logo.svg`;
+const ogImageAlt = 'AirTALK - Voice Chat with Strangers Online';
 
 // Generate JSON-LD structured data
 const structuredData = {
@@ -69,8 +71,9 @@ const organizationSchema = {
   '@type': 'Organization',
   name: siteName,
   url: siteUrl,
-  logo: `${siteUrl}/favicon.svg`,
-  description: 'Anonymous voice and text chat platform to connect with strangers worldwide',
+  logo: logoUrl,
+  image: ogImage,
+  description: 'AirTALK is a popular website to chat with strangers via random voice calls one-on-one. Talk to strangers for free online.',
   sameAs: [
     'https://facebook.com/airtalk',
     'https://twitter.com/airtalk',
@@ -80,6 +83,29 @@ const organizationSchema = {
     '@type': 'ContactPoint',
     email: 'info@airtalk.live',
     contactType: 'Customer Service'
+  }
+};
+
+// WebApplication schema for app-like features
+const webAppSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: siteName,
+  url: siteUrl,
+  applicationCategory: 'CommunicationApplication',
+  operatingSystem: 'Web Browser',
+  offers: {
+    '@type': 'Offer',
+    price: '0',
+    priceCurrency: 'USD'
+  },
+  description: 'AirTALK is a popular website to chat with strangers via random voice calls one-on-one. Talk to strangers for free online.',
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: '4.8',
+    reviewCount: '15000',
+    bestRating: '5',
+    worstRating: '1'
   }
 };
 ---
@@ -104,6 +130,9 @@ const organizationSchema = {
 <meta property="og:image" content={ogImage} />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={ogImageAlt} />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:secure_url" content={ogImage} />
 <meta property="og:site_name" content={siteName} />
 <meta property="og:locale" content="en_US" />
 {article && publishedTime && <meta property="article:published_time" content={publishedTime} />}
@@ -115,6 +144,7 @@ const organizationSchema = {
 <meta name="twitter:title" content={title} />
 <meta name="twitter:description" content={description} />
 <meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={ogImageAlt} />
 <meta name="twitter:site" content={twitterHandle} />
 <meta name="twitter:creator" content={twitterHandle} />
 
@@ -148,4 +178,5 @@ const organizationSchema = {
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(webAppSchema)} />
 

@@ -15,8 +15,8 @@ import '../styles/global.css';
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <SEO 
-      title="Contact AirTalk - Get in Touch with Our Team"
-      description="Contact AirTalk for support, feedback, or inquiries. Reach us via email at info@airtalk.live or connect on social media. We'd love to hear from you!"
+      title="Contact AirTALK - Get in Touch with Our Team"
+      description="Contact AirTALK for support, feedback, or inquiries. Reach us via email at info@airtalk.live or connect on social media. We'd love to hear from you!"
       keywords="contact airtalk, customer support, feedback, help, email support"
       canonical="https://www.airtalk.live/contact"
     />
@@ -26,7 +26,7 @@ import '../styles/global.css';
     
     <section class="contact-hero">
       <div class="container">
-        <h1 class="page-title">Contact AirTalk</h1>
+        <h1 class="page-title">Contact AirTALK</h1>
         <p class="page-subtitle">We'd Love to Hear from You</p>
       </div>
     </section>
@@ -35,7 +35,7 @@ import '../styles/global.css';
       <div class="container">
         <div class="contact-intro">
           <p>
-            AirTalk always wants to hear your voice. Let your voice be heard and contact us on e-mail or on our 
+            AirTALK always wants to hear your voice. Let your voice be heard and contact us on e-mail or on our 
             social media platform pages.
           </p>
           <p>
@@ -44,7 +44,7 @@ import '../styles/global.css';
             on your needs.
           </p>
           <p>
-            Many individuals have engaged in conversations with the author of AirTalk while seeking to connect with 
+            Many individuals have engaged in conversations with the author of AirTALK while seeking to connect with 
             strangers. The author actively asks for feedback regarding the service and keeps a prioritized list of 
             tasks to be implemented. Direct feedback from users is particularly valuable and effective in guiding 
             improvements. If you meet the author, be sure to provide valuable feedback.
@@ -56,13 +56,17 @@ import '../styles/global.css';
 
         <div class="contact-methods">
           <div class="contact-card">
-            <div class="contact-icon">📧</div>
+            <div class="contact-icon">
+              <img src="/contact-email.svg" alt="Email illustration" width="200" height="150" />
+            </div>
             <h2>Email</h2>
             <a href="mailto:info@airtalk.live" class="contact-link">info@airtalk.live</a>
           </div>
 
           <div class="contact-card">
-            <div class="contact-icon">🌐</div>
+            <div class="contact-icon">
+              <img src="/contact-social.svg" alt="Social media illustration" width="200" height="150" />
+            </div>
             <h2>Social Media</h2>
             <div class="social-icons">
               <a href="https://www.facebook.com/AirTALK.live" target="_blank" rel="noopener noreferrer" class="social-btn facebook" aria-label="Facebook">
@@ -140,8 +144,19 @@ import '../styles/global.css';
   }
 
   .contact-icon {
-    font-size: 5rem;
-    margin-bottom: 1.5rem;
+    width: 100%;
+    max-width: 200px;
+    height: 150px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .contact-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
   }
 
   .contact-card h2 {
@@ -209,6 +224,11 @@ import '../styles/global.css';
   @media (max-width: 768px) {
     .contact-methods {
       grid-template-columns: 1fr;
+    }
+
+    .contact-icon {
+      max-width: 150px;
+      height: 120px;
     }
   }
 </style>

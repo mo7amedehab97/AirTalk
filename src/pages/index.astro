@@ -21,9 +21,9 @@ import SEO from '../components/SEO.astro';
     <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <meta name="generator" content={Astro.generator} />
     <SEO 
-      title="AirTalk - World's First Voice-Only Random Chat | 15K Daily Users"
-      description="Join the largest voice chat community with 100,000+ members and 15,000 daily users. Pioneer of voice-only random chat since 2022. Safe, trusted by hundreds of thousands, perfect for language learning, introverts, and visually impaired. No video, no unwanted content."
-      keywords="voice only chat, talk to strangers, largest voice chat community, voice chat platform, omegle alternative, anonymous chat, random voice chat, language learning chat, chat for introverts, accessible chat for blind, safe random chat, pioneer voice chat"
+      title="Talk to Strangers – Voice Chat Online | AirTALK"
+      description="AirTALK is a popular website to chat with strangers via random voice calls one-on-one. Now you can talk to strangers for free online. Explore connections now!"
+      keywords="talk to strangers, voice chat online, random voice calls, chat with strangers, voice chat, anonymous voice chat, omegle alternative, random chat, voice only chat, make friends online"
       canonical="https://www.airtalk.live/"
       ogType="website"
     />
@@ -94,20 +94,26 @@ import SEO from '../components/SEO.astro';
 
 <style is:global>
   :root {
-    --primary: #8b5cf6;
-    --primary-light: #a78bfa;
-    --primary-dark: #7c3aed;
-    --accent: #ec4899;
-    --accent-light: #f472b6;
-    --bg-dark: #0f0a1e;
-    --bg-darker: #070412;
-    --bg-card: rgba(139, 92, 246, 0.1);
+    /* Primary accent colors - based on border color #4f7fff */
+    --primary: #4f7fff;
+    --primary-light: #6b93ff;
+    --primary-dark: #3a6aff;
+    /* Secondary accent - purple tones */
+    --accent: #8b7fff;
+    --accent-light: #a599ff;
+    /* Background colors */
+    --bg-dark: #242463;           /* Dialog background */
+    --bg-darker: #1e1e44;         /* Darker variation */
+    --bg-card: rgba(61, 61, 133, 0.6);  /* Tile color #3d3d85 */
+    --tile: #3d3d85;              /* Solid tile color */
+    /* Text colors */
     --text: #ffffff;
-    --text-muted: #cbd5e1;
-    --text-dim: #94a3b8;
-    --border: rgba(139, 92, 246, 0.3);
-    --shadow: 0 4px 24px rgba(139, 92, 246, 0.15);
-    --shadow-lg: 0 20px 60px rgba(139, 92, 246, 0.3);
+    --text-muted: #c5c5e0;
+    --text-dim: #9898c0;
+    /* Border and shadows - based on #4f7fff */
+    --border: rgba(79, 127, 255, 0.4);
+    --shadow: 0 4px 24px rgba(79, 127, 255, 0.2);
+    --shadow-lg: 0 20px 60px rgba(79, 127, 255, 0.35);
   }
 
   * {
@@ -119,7 +125,8 @@ import SEO from '../components/SEO.astro';
   body {
     font-family: 'Signika', sans-serif;
     color: var(--text);
-    background: var(--bg-dark);
+    background: linear-gradient(90deg, rgba(36,36,99,1) 0%, rgba(30,30,68,1) 15%, rgba(30,30,68,1) 85%, rgba(36,36,99,1) 100%);
+    background-attachment: fixed;
     line-height: 1.6;
     overflow-x: hidden;
     position: relative;
@@ -134,9 +141,9 @@ import SEO from '../components/SEO.astro';
     width: 100%;
     height: 100%;
     background: 
-      radial-gradient(ellipse at 20% 30%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 80% 70%, rgba(236, 72, 153, 0.15) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(167, 139, 250, 0.1) 0%, transparent 50%);
+      radial-gradient(ellipse at 20% 30%, rgba(79, 127, 255, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 70%, rgba(139, 127, 255, 0.12) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 50%, rgba(61, 61, 133, 0.15) 0%, transparent 50%);
     animation: gradientShift 20s ease infinite;
     pointer-events: none;
     z-index: 0;
@@ -167,29 +174,29 @@ import SEO from '../components/SEO.astro';
     width: 100%;
     height: 100%;
     background-image: 
-      radial-gradient(2px 2px at 20% 30%, white, transparent),
-      radial-gradient(2px 2px at 60% 70%, white, transparent),
-      radial-gradient(1px 1px at 50% 50%, white, transparent),
-      radial-gradient(1px 1px at 80% 10%, white, transparent),
-      radial-gradient(2px 2px at 90% 60%, white, transparent),
-      radial-gradient(1px 1px at 33% 80%, white, transparent),
-      radial-gradient(2px 2px at 15% 85%, white, transparent),
-      radial-gradient(1px 1px at 70% 20%, white, transparent);
+      radial-gradient(2px 2px at 20% 30%, rgba(255,255,255,0.8), transparent),
+      radial-gradient(2px 2px at 60% 70%, rgba(255,255,255,0.7), transparent),
+      radial-gradient(1px 1px at 50% 50%, rgba(255,255,255,0.6), transparent),
+      radial-gradient(1px 1px at 80% 10%, rgba(255,255,255,0.8), transparent),
+      radial-gradient(2px 2px at 90% 60%, rgba(255,255,255,0.7), transparent),
+      radial-gradient(1px 1px at 33% 80%, rgba(255,255,255,0.6), transparent),
+      radial-gradient(2px 2px at 15% 85%, rgba(255,255,255,0.7), transparent),
+      radial-gradient(1px 1px at 70% 20%, rgba(255,255,255,0.6), transparent);
     background-repeat: repeat;
     background-size: 200% 200%;
     animation: starTwinkle 15s ease-in-out infinite;
-    opacity: 0.4;
+    opacity: 0.3;
     pointer-events: none;
     z-index: 0;
   }
   
   @keyframes starTwinkle {
     0%, 100% {
-      opacity: 0.3;
+      opacity: 0.2;
       background-position: 0% 0%;
     }
     50% {
-      opacity: 0.6;
+      opacity: 0.4;
       background-position: 100% 100%;
     }
   }
@@ -286,15 +293,15 @@ import SEO from '../components/SEO.astro';
     left: 0;
     right: 0;
     z-index: 1000;
-    background: rgba(15, 10, 30, 0.8);
+    background: rgba(36, 36, 99, 0.85);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border);
     transition: all 0.3s ease;
   }
   
   .navbar.scrolled {
-    background: rgba(15, 10, 30, 0.95);
-    box-shadow: 0 4px 20px rgba(139, 92, 246, 0.2);
+    background: rgba(30, 30, 68, 0.98);
+    box-shadow: 0 4px 20px rgba(79, 127, 255, 0.25);
   }
 
   .nav-content {
@@ -318,7 +325,7 @@ import SEO from '../components/SEO.astro';
 
   .nav-logo:hover .logo-img {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.5));
+    filter: drop-shadow(0 0 8px rgba(79, 127, 255, 0.5));
   }
 
   .nav-links {
@@ -405,7 +412,7 @@ import SEO from '../components/SEO.astro';
     position: relative;
     overflow: hidden;
     padding-top: 80px;
-    background: linear-gradient(180deg, rgba(15, 10, 30, 0.8) 0%, rgba(26, 15, 46, 0.9) 50%, rgba(15, 10, 30, 0.8) 100%);
+    background: linear-gradient(180deg, rgba(36, 36, 99, 0.9) 0%, rgba(30, 30, 68, 0.95) 50%, rgba(36, 36, 99, 0.9) 100%);
   }
 
   .stars {
@@ -421,22 +428,22 @@ import SEO from '../components/SEO.astro';
       radial-gradient(2px 2px at 80% 10%, rgba(255, 255, 255, 0.9), transparent),
       radial-gradient(3px 3px at 90% 60%, rgba(255, 255, 255, 0.8), transparent),
       radial-gradient(1px 1px at 30% 80%, rgba(255, 255, 255, 0.7), transparent),
-      radial-gradient(2px 2px at 40% 20%, rgba(167, 139, 250, 0.6), transparent),
-      radial-gradient(2px 2px at 70% 90%, rgba(236, 72, 153, 0.6), transparent);
+      radial-gradient(2px 2px at 40% 20%, rgba(79, 127, 255, 0.5), transparent),
+      radial-gradient(2px 2px at 70% 90%, rgba(139, 127, 255, 0.5), transparent);
     background-size: 250% 250%;
     background-position: 0% 0%;
     animation: heroStarTwinkle 25s ease-in-out infinite;
-    opacity: 0.7;
+    opacity: 0.6;
     pointer-events: none;
   }
 
   @keyframes heroStarTwinkle {
     0%, 100% { 
-      opacity: 0.6;
+      opacity: 0.5;
       background-position: 0% 0%;
     }
     50% { 
-      opacity: 0.9;
+      opacity: 0.8;
       background-position: 100% 100%;
     }
   }
@@ -462,7 +469,7 @@ import SEO from '../components/SEO.astro';
   .hero-badge {
     display: inline-block;
     padding: 0.5rem 1.5rem;
-    background: rgba(139, 92, 246, 0.2);
+    background: rgba(61, 61, 133, 0.5);
     border: 1px solid var(--primary);
     border-radius: 50px;
     font-size: 0.9rem;
@@ -474,10 +481,10 @@ import SEO from '../components/SEO.astro';
   
   @keyframes badge-glow {
     0%, 100% {
-      box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+      box-shadow: 0 0 10px rgba(79, 127, 255, 0.3);
     }
     50% {
-      box-shadow: 0 0 20px rgba(139, 92, 246, 0.6);
+      box-shadow: 0 0 20px rgba(79, 127, 255, 0.6);
     }
   }
 
@@ -591,8 +598,8 @@ import SEO from '../components/SEO.astro';
   .features {
     padding: 6rem 0;
     background: 
-      radial-gradient(ellipse at 10% 20%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 80%, rgba(236, 72, 153, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 10% 20%, rgba(79, 127, 255, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 90% 80%, rgba(139, 127, 255, 0.08) 0%, transparent 50%),
       var(--bg-darker);
     position: relative;
     overflow: hidden;
@@ -605,7 +612,7 @@ import SEO from '../components/SEO.astro';
     right: -5%;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(79, 127, 255, 0.12) 0%, transparent 70%);
     border-radius: 50%;
     animation: float-bubble 8s ease-in-out infinite;
     filter: blur(40px);
@@ -618,7 +625,7 @@ import SEO from '../components/SEO.astro';
     left: -5%;
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, rgba(236, 72, 153, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(139, 127, 255, 0.12) 0%, transparent 70%);
     border-radius: 50%;
     animation: float-bubble 10s ease-in-out infinite reverse;
     filter: blur(40px);
@@ -703,7 +710,7 @@ import SEO from '../components/SEO.astro';
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(139, 92, 246, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, rgba(79, 127, 255, 0.1), transparent);
     transition: left 0.5s ease;
   }
   
@@ -754,7 +761,7 @@ import SEO from '../components/SEO.astro';
   .how-it-works {
     padding: 6rem 0;
     background: 
-      radial-gradient(ellipse at 50% 0%, rgba(167, 139, 250, 0.1) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 0%, rgba(79, 127, 255, 0.1) 0%, transparent 50%),
       linear-gradient(180deg, var(--bg-darker) 0%, var(--bg-dark) 100%);
     position: relative;
     overflow: hidden;
@@ -768,7 +775,7 @@ import SEO from '../components/SEO.astro';
     transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(79, 127, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: pulseGlow 8s ease-in-out infinite;
     filter: blur(50px);
@@ -875,8 +882,8 @@ import SEO from '../components/SEO.astro';
   .testimonials {
     padding: 6rem 0;
     background: 
-      radial-gradient(ellipse at 80% 20%, rgba(236, 72, 153, 0.1) 0%, transparent 60%),
-      radial-gradient(ellipse at 20% 80%, rgba(139, 92, 246, 0.1) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(139, 127, 255, 0.1) 0%, transparent 60%),
+      radial-gradient(ellipse at 20% 80%, rgba(79, 127, 255, 0.1) 0%, transparent 60%),
       var(--bg-dark);
     position: relative;
     overflow: hidden;
@@ -889,7 +896,7 @@ import SEO from '../components/SEO.astro';
     right: 5%;
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: float-bubble 9s ease-in-out infinite;
     filter: blur(40px);
@@ -902,7 +909,7 @@ import SEO from '../components/SEO.astro';
     left: 10%;
     width: 250px;
     height: 250px;
-    background: radial-gradient(circle, rgba(167, 139, 250, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(79, 127, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: float-bubble 7s ease-in-out infinite reverse;
     filter: blur(40px);
@@ -978,7 +985,7 @@ import SEO from '../components/SEO.astro';
   .faq {
     padding: 6rem 0;
     background: 
-      radial-gradient(ellipse at 30% 50%, rgba(139, 92, 246, 0.08) 0%, transparent 60%),
+      radial-gradient(ellipse at 30% 50%, rgba(79, 127, 255, 0.08) 0%, transparent 60%),
       var(--bg-darker);
     position: relative;
     overflow: hidden;
@@ -991,7 +998,7 @@ import SEO from '../components/SEO.astro';
     left: 10%;
     width: 350px;
     height: 350px;
-    background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(79, 127, 255, 0.12) 0%, transparent 70%);
     border-radius: 50%;
     animation: float-bubble 11s ease-in-out infinite;
     filter: blur(50px);
@@ -1004,7 +1011,7 @@ import SEO from '../components/SEO.astro';
     right: 15%;
     width: 280px;
     height: 280px;
-    background: radial-gradient(circle, rgba(236, 72, 153, 0.12) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(139, 127, 255, 0.1) 0%, transparent 70%);
     border-radius: 50%;
     animation: float-bubble 9s ease-in-out infinite reverse;
     filter: blur(45px);
@@ -1074,7 +1081,7 @@ import SEO from '../components/SEO.astro';
   /* Footer */
   .footer {
     background: 
-      radial-gradient(ellipse at 50% 100%, rgba(139, 92, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(79, 127, 255, 0.08) 0%, transparent 50%),
       var(--bg-darker);
     color: var(--text);
     padding: 4rem 0 2rem;
@@ -1091,7 +1098,7 @@ import SEO from '../components/SEO.astro';
     transform: translateX(-50%);
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, rgba(167, 139, 250, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(79, 127, 255, 0.08) 0%, transparent 70%);
     border-radius: 50%;
     filter: blur(60px);
     animation: pulseGlow 10s ease-in-out infinite;
@@ -1122,7 +1129,7 @@ import SEO from '../components/SEO.astro';
 
   .footer-logo:hover .footer-logo-img {
     transform: scale(1.05);
-    filter: drop-shadow(0 0 8px rgba(139, 92, 246, 0.5));
+    filter: drop-shadow(0 0 8px rgba(79, 127, 255, 0.5));
   }
 
   .footer-title {
@@ -1180,7 +1187,7 @@ import SEO from '../components/SEO.astro';
       top: 100%;
       left: 0;
       right: 0;
-      background: var(--bg-darker);
+      background: rgba(30, 30, 68, 0.98);
       flex-direction: column;
       padding: 2rem;
       border-top: 1px solid var(--border);
