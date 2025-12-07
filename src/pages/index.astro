@@ -365,7 +365,7 @@ import SEO from '../components/SEO.astro';
 
   .nav-cta {
     padding: 0.75rem 1.5rem;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    background: linear-gradient(135deg, #ff6b32 0%, #ff8c32 50%, #ffb347 100%);
     color: white;
     border: none;
     border-radius: 50px;
@@ -374,6 +374,7 @@ import SEO from '../components/SEO.astro';
     transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
     position: relative;
     overflow: hidden;
+    box-shadow: 0 4px 15px rgba(255, 107, 50, 0.3);
   }
   
   .nav-cta::before {
@@ -393,7 +394,7 @@ import SEO from '../components/SEO.astro';
 
   .nav-cta:hover {
     transform: translateY(-2px) scale(1.05);
-    box-shadow: var(--shadow);
+    box-shadow: 0 8px 25px rgba(255, 107, 50, 0.4);
   }
 
   .mobile-menu-btn {
@@ -568,19 +569,34 @@ import SEO from '../components/SEO.astro';
   }
 
   .cta-button.voice {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    background: linear-gradient(135deg, #ff6b32 0%, #ff8c32 50%, #ffb347 100%);
     color: white;
+    box-shadow: 
+      0 4px 15px rgba(255, 107, 50, 0.4),
+      0 0 40px rgba(255, 140, 50, 0.2);
+    animation: sunsetGlow 2s ease-in-out infinite;
+  }
+  
+  @keyframes sunsetGlow {
+    0%, 100% { 
+      box-shadow: 0 4px 15px rgba(255, 107, 50, 0.4), 0 0 40px rgba(255, 140, 50, 0.2); 
+    }
+    50% { 
+      box-shadow: 0 4px 20px rgba(255, 107, 50, 0.6), 0 0 60px rgba(255, 140, 50, 0.35); 
+    }
   }
 
   .cta-button.text {
     background: rgba(255, 255, 255, 0.1);
     color: white;
-    border: 2px solid var(--primary);
+    border: 2px solid #ff6b32;
   }
 
   .cta-button:hover {
     transform: translateY(-4px) scale(1.05);
-    box-shadow: var(--shadow-lg);
+    box-shadow: 
+      0 8px 25px rgba(255, 107, 50, 0.5),
+      0 0 60px rgba(255, 140, 50, 0.4);
   }
   
   .cta-button:active {
