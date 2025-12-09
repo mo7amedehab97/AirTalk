@@ -1,23 +1,33 @@
 ---
-import { getCollection } from 'astro:content';
-import Navbar from '../../components/Navbar.astro';
-import Footer from '../../components/Footer.astro';
-import SEO from '../../components/SEO.astro';
-import '../../styles/global.css';
+import posts from "../../../public/articles/index.json";
+import fs from "node:fs/promises";
+import path from "node:path";
+import { marked } from "marked";
+import Navbar from "../../components/Navbar.astro";
+import Footer from "../../components/Footer.astro";
+import SEO from "../../components/SEO.astro";
+import "../../styles/global.css";
 
 export async function getStaticPaths() {
-  const blogEntries = await getCollection('blog');
-  return blogEntries.map(entry => ({
-    params: { slug: entry.slug }, props: { entry },
+  return posts.map((post) => ({
+    params: { slug: post.id },
+    props: { post },
   }));
 }
 
-const { entry } = Astro.props;
-const { Content } = await entry.render();
-const publishedTime = entry.data.date.toISOString();
+const { post } = Astro.props;
+const markdownPath = path.join(
+  process.cwd(),
+  "public",
+  "articles",
+  `${post.id}.md`,
+);
+const markdownContent = await fs.readFile(markdownPath, "utf-8");
+const content = marked.parse(markdownContent);
+const publishedTime = new Date(post.date).toISOString();
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -25,43 +35,58 @@ const publishedTime = entry.data.date.toISOString();
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <SEO 
-      title={`${entry.data.title} - AirTALK Blog`}
-      description={entry.data.description}
-      keywords={`${entry.data.title}, talk to strangers, voice chat, random chat, chat tips, ${entry.slug}`}
-      canonical={`https://www.airtalk.live/blog/${entry.slug}`}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <SEO
+      title={`${post.title} - AirTALK Blog`}
+      description={post.description}
+      keywords={`${post.title}, talk to strangers, voice chat, random chat, chat tips, ${post.id}`}
+      canonical={`https://www.airtalk.live/blog/${post.id}`}
       ogType="article"
       article={true}
       publishedTime={publishedTime}
       modifiedTime={publishedTime}
-      author={entry.data.author}
+      author={post.author}
     />
   </head>
   <body>
     <Navbar />
-    
+
     <article class="blog-post">
       <div class="post-header">
         <div class="container">
-          <h1 class="post-title">{entry.data.title}</h1>
+          <h1 class="post-title">{post.title}</h1>
           <div class="post-meta">
-            <span class="post-date">📅 {entry.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}</span>
-            <span class="post-author">👤 {entry.data.author}</span>
+            <span class="post-date"
+              >📅 {
+                new Date(post.date).toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                })
+              }</span
+            >
+            <span class="post-author">👤 {post.author}</span>
           </div>
         </div>
       </div>
 
       <div class="post-image">
-        <div class="placeholder-image">{entry.data.title.slice(0, 2).toUpperCase()}</div>
+        <img
+          src={`/articles/${post.id}.jpg`}
+          alt={post.imgAlt}
+          class="post-img-cover"
+        />
       </div>
 
       <div class="post-content">
         <div class="container">
           <div class="content-wrapper">
-            <Content />
+            <div set:html={content} />
           </div>
-          
+
           <div class="post-footer">
             <a href="/blog" class="back-btn">← Back to Blog</a>
           </div>
@@ -82,7 +107,11 @@ const publishedTime = entry.data.date.toISOString();
 
   .post-header {
     padding: 4rem 0 2rem;
-    background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+    background: linear-gradient(
+      180deg,
+      var(--bg-dark) 0%,
+      var(--bg-darker) 100%
+    );
     text-align: center;
   }
 
@@ -112,15 +141,10 @@ const publishedTime = entry.data.date.toISOString();
     border-radius: 1.5rem;
   }
 
-  .placeholder-image {
+  .post-img-cover {
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 6rem;
-    font-weight: 800;
-    color: rgba(255, 255, 255, 0.9);
+    object-fit: cover;
   }
 
   .post-content {
@@ -181,7 +205,7 @@ const publishedTime = entry.data.date.toISOString();
     background: rgba(79, 127, 255, 0.2);
     padding: 0.2rem 0.5rem;
     border-radius: 0.25rem;
-    font-family: 'Courier New', monospace;
+    font-family: "Courier New", monospace;
     color: var(--primary-light);
   }
 
@@ -234,4 +258,3 @@ const publishedTime = entry.data.date.toISOString();
     }
   }
 </style>
-
