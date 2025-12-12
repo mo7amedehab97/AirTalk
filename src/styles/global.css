@@ -7,10 +7,14 @@
   --accent: #8b7fff;
   --accent-light: #a599ff;
   /* Background colors */
-  --bg-dark: #242463;           /* Dialog background */
-  --bg-darker: #1e1e44;         /* Darker variation */
-  --bg-card: rgba(61, 61, 133, 0.6);  /* Tile color #3d3d85 */
-  --tile: #3d3d85;              /* Solid tile color */
+  --bg-dark: #242463;
+  /* Dialog background */
+  --bg-darker: #1e1e44;
+  /* Darker variation */
+  --bg-card: rgba(61, 61, 133, 0.6);
+  /* Tile color #3d3d85 */
+  --tile: #3d3d85;
+  /* Solid tile color */
   /* Text colors */
   --text: #ffffff;
   --text-muted: #c5c5e0;
@@ -30,7 +34,7 @@
 body {
   font-family: 'Signika', sans-serif;
   color: var(--text);
-  background: linear-gradient(90deg, rgba(36,36,99,1) 0%, rgba(30,30,68,1) 15%, rgba(30,30,68,1) 85%, rgba(36,36,99,1) 100%);
+  background: linear-gradient(90deg, rgba(36, 36, 99, 1) 0%, rgba(30, 30, 68, 1) 15%, rgba(30, 30, 68, 1) 85%, rgba(36, 36, 99, 1) 100%);
   background-attachment: fixed;
   line-height: 1.6;
   overflow-x: hidden;
@@ -59,6 +63,7 @@ body {
   align-items: center;
   justify-content: space-between;
   padding: 1rem 0;
+
 }
 
 .nav-logo {
@@ -68,6 +73,7 @@ body {
   font-size: 1.5rem;
   font-weight: 700;
   color: var(--text);
+  text-decoration: none;
 }
 
 .logo-icon {
@@ -295,19 +301,19 @@ body {
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-  
+
   .footer-content {
     grid-template-columns: 1fr;
   }
-  
+
   .feature-card {
     padding: 1.5rem;
   }
-  
+
   .section-title {
     font-size: 1.75rem;
   }
-  
+
   .section-subtitle {
     font-size: 1rem;
     margin-bottom: 2rem;
@@ -316,23 +322,27 @@ body {
 
 @media (max-width: 480px) {
   .container {
-    padding: 0 2rem;
+    padding: 0 1rem;
+
   }
-  
+
+  .navbar .container {
+    padding: 0 0.5rem;
+  }
+
   .features-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .feature-card {
     padding: 1.25rem;
   }
-  
+
   .feature-title {
     font-size: 1.25rem;
   }
-  
+
   .feature-description {
     font-size: 0.9rem;
   }
 }
-

@@ -79,10 +79,7 @@
         </h1>
         <p class="hero-subtitle" itemprop="description">
           Join the world's largest voice chat community with over 15,000 daily
-          users. The first and most trusted voice-only random chat platform.
-          Connect anonymously with strangers worldwide - no video, no profiles,
-          no pressure. Safe, stable, and chosen by hundreds of thousands since
-          2022.
+          users. Connect anonymously with strangers worldwide.
         </p>
         <div class="trust-stats">
           <div class="stat">
@@ -149,7 +146,6 @@
   .hero-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
     align-items: center;
     min-height: calc(100vh - 80px);
     width: 100%;
@@ -481,10 +477,6 @@
 
   /* Responsive Design */
   @media (max-width: 1024px) {
-    .hero-grid {
-      gap: 3rem;
-    }
-
     .illustration-wrapper {
       max-width: 450px;
     }
@@ -498,17 +490,16 @@
     .hero-grid {
       display: flex;
       flex-direction: column;
-      gap: 2px !important;
       text-align: center;
       min-height: auto;
-      padding-top: 0.5rem;
+      margin-top: 0.5rem;
     }
 
     .hero-badge.mobile-badge {
       display: inline-block;
       order: 1;
       align-self: center;
-      margin-bottom: 2px !important;
+      margin-bottom: 1rem !important;
       padding: 0.35rem 0.8rem;
       font-size: 0.7rem;
     }
@@ -519,7 +510,7 @@
 
     .hero-illustration {
       order: 2;
-      margin-bottom: 0;
+      margin-bottom: 0.5rem;
     }
 
     .hero-content {
@@ -532,7 +523,7 @@
     }
 
     .hero-svg {
-      max-width: 350px;
+      max-width: 220px;
     }
 
     .hero-badge {
@@ -542,22 +533,22 @@
     }
 
     .hero-title {
-      margin-bottom: 2px !important;
+      margin-bottom: 1rem !important;
       margin-top: 0 !important;
-      font-size: 1.8rem;
+      font-size: 2rem;
     }
 
     .hero-subtitle {
-      margin-bottom: 2px !important;
+      margin-bottom: 1.5rem !important;
       margin-top: 0 !important;
-      font-size: 0.85rem;
-      line-height: 1.4;
+      font-size: 0.95rem;
+      line-height: 1.6;
     }
 
     .trust-stats {
       justify-content: center;
-      margin: 2px 0 !important;
-      gap: 1rem;
+      margin: 1.5rem 0 !important;
+      gap: 1.5rem;
     }
 
     .stat {
@@ -576,7 +567,7 @@
       flex-direction: column;
       align-items: stretch;
       justify-content: center;
-      margin-bottom: 2px !important;
+      margin-bottom: 2rem !important;
     }
 
     .hero-lines {
@@ -590,13 +581,8 @@
   }
 
   @media (max-width: 480px) {
-    .hero-grid {
-      gap: 2px !important;
-      padding-top: 0.5rem;
-    }
-
     .hero-badge-wrapper {
-      margin-bottom: 0;
+      margin-bottom: 1rem;
     }
 
     .illustration-wrapper {
@@ -604,7 +590,7 @@
     }
 
     .hero-svg {
-      max-width: 260px;
+      max-width: 220px;
     }
 
     .hero-badge {
@@ -614,20 +600,20 @@
     }
 
     .hero-title {
-      margin-bottom: 2px !important;
+      margin-bottom: 1rem !important;
       margin-top: 0 !important;
-      font-size: 1.6rem;
+      font-size: 1.8rem;
     }
 
     .hero-subtitle {
-      margin-bottom: 2px !important;
+      margin-bottom: 1.5rem !important;
       margin-top: 0 !important;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       line-height: 1.5;
     }
 
     .trust-stats {
-      margin: 2px 0 !important;
+      margin: 1.5rem 0 !important;
       gap: 1rem;
     }
 
@@ -640,7 +626,7 @@
     }
 
     .hero-buttons {
-      margin-bottom: 2px !important;
+      margin-bottom: 2rem !important;
     }
 
     .hero-note {
@@ -658,6 +644,44 @@
       width: 35%;
       opacity: 0.08;
       animation: none;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .hero-svg {
+      max-width: 180px;
+    }
+    .trust-stats {
+      margin: 0.1rem 0 !important;
+      gap: 0.1rem;
+    }
+
+    .stat strong {
+      font-size: 0.8rem;
+    }
+
+    .stat span {
+      font-size: 0.75rem;
+    }
+  }
+  @media (max-width: 480px) and (min-height: 670px) {
+    .hero-svg {
+      max-width: 100vw !important;
+    }
+    .hero-title {
+      font-size: 2em;
+    }
+  }
+  @media (max-width: 480px) and (min-height: 900px) {
+    .hero-grid{
+      margin-top: -3rem;
+    }
+    .hero-svg {
+      max-width: 100vw !important;
+      width: 350px;
+    }
+    .hero-title {
+      font-size: 2.5em;
     }
   }
 </style>
