@@ -1,46 +1,99 @@
 ---
+import 'swiper/css';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+
 const testimonials = [
   {
-    name: 'Maria S.',
-    role: '2-Year Member',
-    quote: 'I\'m visually impaired and AirTALK is perfect for me. Voice-only means I can participate just like everyone else. Been using it for 2 years and it\'s so reliable!'
+    name: "Random Tester",
+    role: "",
+    quote:
+      "I talked to a guy who deals with intense anxiety attacks. Whenever he feels one coming on, he jumps on this site and talks to someone. It distracts him enough to let him breathe again.",
   },
   {
-    name: 'David K.',
-    role: 'Language Learner',
-    quote: 'I\'ve practiced English with hundreds of people here. 15,000 daily users means I always find native speakers. My fluency improved dramatically in just 6 months!'
+    name: "Visually Impaired user",
+    role: "",
+    quote:
+      "I was surprised by how many visually impaired people I connected with. Most chat sites ask for video, which ruins the experience for us. But you don't need that here.",
   },
   {
-    name: 'Sarah T.',
-    role: 'Introvert User',
-    quote: 'As an introvert, video chat terrified me. AirTALK\'s voice-only approach changed everything. I can be myself without camera anxiety. The community is amazing!'
-  }
+    name: "Language Learner",
+    role: "",
+    quote:
+      "This site is a goldmine for language learning.There's a country filter that connects you with native speakers of every language. I've practiced Spanish with people actually living in Spain, and everyone I met was happy to help.",
+  },
+  {
+    name: "Shy user",
+    role: "",
+    quote:
+      "I met many shy people who specifically use voice-only chat to improve their social skills. I could barely say Hello, but ended up having 30-minute convos with full confidence because it's anonymous.",
+  },
+  {
+    name: "College Student",
+    role: "",
+    quote:
+      "I was going through a rough time, and needed someone to talk to. I was able to find someone I genuinely connected with.",
+  },
+  {
+    name: "Introvert",
+    role: "",
+    quote:
+      "I used to find it awkward to talk to strangers, but anonymous voice chats helped me practice without pressure. I feel more confident now.",
+  },
+  {
+    name: "Housewife",
+    role: "",
+    quote:
+      "I don't have to worry about how I look when I chat with strangers, it allows me to just be myself and let go of the stress",
+  },
+  {
+    name: "French Learner",
+    role: "",
+    quote:
+      "I've been practicing French with native speakers from France. My accent and comprehension have improved immensely.",
+  },
 ];
 ---
 
+
 <section class="testimonials" id="testimonials">
   <div class="container">
-    <h2 class="section-title" data-animate="fade-up">Trusted by 100,000+ Users Worldwide</h2>
+    <h2 class="section-title" data-animate="fade-up">What Users Say</h2>
     <p class="section-subtitle" data-animate="fade-up">
-      Real stories from our 3-year community of 15,000 daily users
+      Curious to know what real people think? We asked total strangers– men and
+      women– what they thought of our voice-only Omegle alternative. Here are
+      their thoughts:
     </p>
-    <div class="testimonials-grid">
-      {testimonials.map((testimonial, index) => (
-        <div class="testimonial-card" 
-             data-animate="flip-left" 
-             style={`transition-delay: ${index * 0.1}s`}>
-          <p class="testimonial-quote">"{testimonial.quote}"</p>
-          <div class="testimonial-author">
-            <p class="author-name">{testimonial.name}</p>
-            <p class="author-role">{testimonial.role}</p>
-          </div>
+    
+    <div class="testimonials-swiper-wrapper">
+      <div class="swiper testimonials-swiper">
+        <div class="swiper-wrapper">
+          {testimonials.map((testimonial, index) => (
+            <div class="swiper-slide">
+              <div
+                class="testimonial-card"
+              >
+                <p class="testimonial-quote">"{testimonial.quote}"</p>
+                <div class="testimonial-author">
+                  <p class="author-name">{testimonial.name}</p>
+                  <p class="author-role">{testimonial.role}</p>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
-      ))}
+        
+      </div>
+      <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
     </div>
   </div>
   <!-- Decorative arrow -->
 
-  <div style="display: flex; justify-content: center; align-items: center; margin-top: .5rem; margin-bottom: .5rem;">
+  <div
+    style="display: flex; justify-content: center; align-items: center; margin-top: .5rem; margin-bottom: .5rem;"
+  >
     <img
       src="/curved-arrow-down.svg"
       alt=""
@@ -50,3 +103,261 @@ const testimonials = [
   </div>
 </section>
 
+<script>
+  import Swiper from 'swiper';
+  import { Pagination, Navigation } from 'swiper/modules';
+
+  function initSwiper() {
+    const swiperEl = document.querySelector('.testimonials-swiper');
+    if (!swiperEl || !(swiperEl instanceof HTMLElement)) {
+      setTimeout(initSwiper, 100);
+      return;
+    }
+
+    try {
+      new Swiper(swiperEl, {
+        modules: [Pagination, Navigation],
+        slidesPerView: 1,
+        spaceBetween: 30,
+        pagination: {
+          el: '.swiper-pagination',
+          clickable: true,
+        },
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev',
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+        },
+      });
+    } catch (error) {
+      console.error('Swiper initialization error:', error);
+    }
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(initSwiper, 50);
+    });
+  } else {
+    setTimeout(initSwiper, 50);
+  }
+</script>
+
+<style is:global>
+  .testimonials-swiper-wrapper {
+    position: relative;
+    width: 100%;
+    padding: 0 80px;
+    margin: 0 auto;
+    overflow: visible;
+    z-index: 99999;
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-swiper-wrapper {
+      padding: 0 20px;
+    }
+  }
+
+  .testimonials-swiper {
+    padding-bottom: 50px;
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .testimonials-swiper .swiper-wrapper {
+    display: flex;
+  }
+
+  .testimonials-swiper .swiper-slide {
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+  }
+
+  .testimonials-swiper .swiper-pagination {
+    position: relative;
+    margin-top: 2rem;
+    
+  }
+
+  .testimonials-swiper .swiper-pagination-bullet {
+    background: var(--primary);
+    width: 12px;
+    height: 12px;
+    opacity: 0.5;
+    transition: all 0.3s ease;
+  }
+
+  .testimonials-swiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+
+  /* Navigation Buttons Styling - Unique Theme Design */
+  .testimonials-swiper .swiper-button-next,
+  .testimonials-swiper .swiper-button-prev {
+    width: 56px;
+    height: 56px;
+    background: linear-gradient(135deg, rgba(79, 127, 255, 0.15) 0%, rgba(139, 127, 255, 0.15) 100%);
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(79, 127, 255, 0.5);
+    border-radius: 50%;
+    color: var(--primary-light);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    margin-top: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: visible;
+    box-shadow: 
+      0 4px 20px rgba(79, 127, 255, 0.25),
+      0 0 0 0 rgba(79, 127, 255, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  }
+
+  /* Gradient border glow effect using pseudo-element */
+  .testimonials-swiper .swiper-button-next::before,
+  .testimonials-swiper .swiper-button-prev::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: 50%;
+    background: conic-gradient(from 0deg, var(--primary), var(--accent), var(--primary-light), var(--primary));
+    opacity: 0.6;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    z-index: -1;
+    filter: blur(3px);
+  }
+
+  .testimonials-swiper .swiper-button-next {
+    right: -25px;
+  }
+
+  .testimonials-swiper .swiper-button-prev {
+    left: -25px;
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-swiper .swiper-button-next {
+      right: -10px;
+    }
+
+    .testimonials-swiper .swiper-button-prev {
+      left: -10px;
+    }
+  }
+
+  .testimonials-swiper .swiper-button-next::after,
+  .testimonials-swiper .swiper-button-prev::after {
+    font-size: 22px;
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 2px 4px rgba(79, 127, 255, 0.3));
+  }
+
+  /* Animated background shimmer effect */
+  .testimonials-swiper .swiper-button-next::after,
+  .testimonials-swiper .swiper-button-prev::after {
+    background: linear-gradient(135deg, var(--primary-light) 0%, var(--accent-light) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .testimonials-swiper .swiper-button-next:hover,
+  .testimonials-swiper .swiper-button-prev:hover {
+    background: linear-gradient(135deg, rgba(79, 127, 255, 0.3) 0%, rgba(139, 127, 255, 0.3) 100%);
+    border-color: var(--primary-light);
+    transform: translateY(-50%) scale(1.15);
+    box-shadow: 
+      0 8px 30px rgba(79, 127, 255, 0.4),
+      0 0 0 4px rgba(79, 127, 255, 0.2),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+
+  .testimonials-swiper .swiper-button-next:hover::before,
+  .testimonials-swiper .swiper-button-prev:hover::before {
+    opacity: 1;
+    filter: blur(4px);
+    transform: scale(1.1);
+    animation: borderGlow 2s ease-in-out infinite, borderRotate 3s linear infinite;
+  }
+
+  @keyframes borderRotate {
+    0% {
+      transform: scale(1.1) rotate(0deg);
+    }
+    100% {
+      transform: scale(1.1) rotate(360deg);
+    }
+  }
+
+  @keyframes borderGlow {
+    0%, 100% {
+      opacity: 1;
+      filter: brightness(1);
+    }
+    50% {
+      opacity: 0.8;
+      filter: brightness(1.3);
+    }
+  }
+
+  .testimonials-swiper .swiper-button-next:hover::after,
+  .testimonials-swiper .swiper-button-prev:hover::after {
+    transform: scale(1.1);
+    filter: drop-shadow(0 4px 8px rgba(79, 127, 255, 0.5));
+  }
+
+  .testimonials-swiper .swiper-button-next:active,
+  .testimonials-swiper .swiper-button-prev:active {
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 
+      0 4px 15px rgba(79, 127, 255, 0.3),
+      0 0 0 2px rgba(79, 127, 255, 0.3);
+  }
+
+  /* Subtle pulse animation for attention */
+  @keyframes buttonPulse {
+    0%, 100% {
+      box-shadow: 
+        0 4px 20px rgba(79, 127, 255, 0.25),
+        0 0 0 0 rgba(79, 127, 255, 0.4);
+    }
+    50% {
+      box-shadow: 
+        0 4px 20px rgba(79, 127, 255, 0.35),
+        0 0 0 3px rgba(79, 127, 255, 0.2);
+    }
+  }
+
+  .testimonials-swiper .swiper-button-next:not(:hover),
+  .testimonials-swiper .swiper-button-prev:not(:hover) {
+    animation: buttonPulse 3s ease-in-out infinite;
+  }
+
+  /* Hide buttons on mobile */
+  @media (max-width: 768px) {
+    .testimonials-swiper .swiper-button-next,
+    .testimonials-swiper .swiper-button-prev {
+      display: none;
+    }
+  }
+</style>

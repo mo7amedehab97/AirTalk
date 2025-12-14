@@ -1,36 +1,40 @@
 ---
 const faqs = [
   {
-    question: 'Why is AirTALK the best voice chat platform?',
-    answer: 'AirTALK pioneered voice-only random chat in 2022, making us the FIRST dedicated voice chat platform. With over 100,000 members, 15,000 daily users, and 3 years of proven reliability, we\'re the largest and most trusted voice chat community worldwide. Hundreds of thousands have chosen us - that\'s the trust you can count on.'
+    question: 'Is AirTALK safe?',
+    answer: 'AirTALK is 100% safe. Voice-only ensures that user privacy is protected and safe connections are made. No camera needed, so conversations flow easily.'
   },
   {
-    question: 'Is AirTALK safe with voice-only? Why no video?',
-    answer: 'Voice-only is SAFER! We pioneered this approach because it completely eliminates unwanted and disturbing visual content that plagues video platforms. No inappropriate exposure, no risks - just authentic conversations. This is why we\'ve built the largest voice chat community over 3 years. Safety first, always.'
-  },
-  {
-    question: 'How many people use AirTALK?',
-    answer: 'We serve 15,000+ daily active users and have over 100,000 community members. Hundreds of thousands have chosen AirTALK since 2022. We\'re the world\'s largest voice chat platform, and our size proves our reliability. When you see this many people trust us, you gain confidence too.'
-  },
-  {
-    question: 'Can blind people or introverts use AirTALK?',
-    answer: 'Absolutely! AirTALK is perfect for visually impaired and blind users - our voice-first design ensures full accessibility. It\'s also ideal for introverts who prefer speaking without video pressure. Everyone participates equally through voice, making genuine connections without judgment.'
+    question: 'How many users does AirTALK have?',
+    answer: 'Currently, AirTALK has 280k active users and has been around for 3 years. Our Instant Matching feature connects users to one another within seconds.'
   },
   {
     question: 'Can I practice languages on AirTALK?',
-    answer: 'Yes! With 15,000 daily users from around the world, AirTALK is perfect for language learning. Practice with native speakers, improve pronunciation, and build fluency through real conversations. Many users join specifically to enhance their language and communication skills.'
-  },
-  {
-    question: 'How long has AirTALK been running?',
-    answer: 'AirTALK has been stable and reliable for 3 years since pioneering voice-only chat in 2022. Throughout these years, hundreds of thousands have trusted us, and we\'ve continuously improved our service. Our proven track record of reliability sets us apart from newer platforms.'
+    answer: 'Our Country Selector connects you with native speakers all over the globe, so you can talk to people from your favourite regions and practice your target language.'
   },
   {
     question: 'Is AirTALK free? Do I need an account?',
-    answer: 'AirTALK is 100% free forever with no hidden costs. No accounts, no phone numbers, no personal information required. Just click and start talking to strangers instantly. Join our 15,000 daily users without any barriers.'
+    answer: 'AirTALK is free. You don’t need to make an account either. However, Premium Features are available for an enhanced voice chat experience.'
   },
   {
-    question: 'How is AirTALK different from Omegle?',
-    answer: 'We pioneered voice-only random chat in 2022, while Omegle focused on video. Voice-only eliminates ALL unwanted content and is safer for users. Plus, we\'re the largest voice chat community (100,000+ members) with proven stability over 3 years. We\'re the pioneer, they\'re the past.'
+    question: 'Is AirTALK different from Omegle?',
+    answer: 'AirTALK has voice-only chat, which makes it a better Omegle alternative. It provides improved privacy, gender filters and AI moderation as security features.'
+  },
+  {
+    question: 'What makes AirTALK unique?',
+    answer: 'AirTALK is the fastest-growing anonymous voice chat platform. It has features like instant matching and AI tools, along with complete safety for your voice chats.'
+  },
+  {
+    question: 'How does AI filter for gender?',
+    answer: 'Our AI picks up on voice patterns in real-time to determine gender. Premium Subscribers can use this feature to match with their preferred gender.'
+  },
+  {
+    question: 'What happens if I get disconnected?',
+    answer: 'We have a reconnection system and call history feature. If you lose connection, you’ll be able to reconnect with the person you were talking to.'
+  },
+  {
+    question: 'Can I choose who I talk to?',
+    answer: 'You can select countries to match with people from particular regions or cultures. Premium users can also use our AI gender filter to further select for gender.'
   }
 ];
 
@@ -51,7 +55,7 @@ const faqSchema = {
 
 <section class="faq" id="faq" itemscope itemtype="https://schema.org/FAQPage">
   <div class="container">
-    <h2 class="section-title" data-animate="fade-up">Frequently Asked Questions About Talking to Strangers</h2>
+    <h2 class="section-title" data-animate="fade-up">Frequently Asked Questions</h2>
     <div class="faq-list">
       {faqs.map((faq, index) => (
         <div class="faq-item" 
